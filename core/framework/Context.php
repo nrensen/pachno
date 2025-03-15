@@ -371,7 +371,7 @@
                     $hostname = $_SERVER['HTTP_HOST'];
                 }
 
-                if (!self::isUpgrademode() && !self::isInstallmode())
+                if (self::isUpgrademode() || !self::isInstallmode())
                     $scope = Scopes::getTable()->getByHostnameOrDefault($hostname);
 
                 if (!$scope instanceof Scope) {
