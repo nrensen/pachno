@@ -50,7 +50,7 @@
         protected $_description;
 
         /**
-         * @Column(type="string", length=200)
+         * @Column(type="integer", length=10)
          */
         protected $_size;
 
