@@ -14,7 +14,7 @@
      * @package pachno
      * @subpackage main
      */
-    class TextParserMarkdown extends Parsedown implements ContentParser
+    class TextParserMarkdown extends \Michelf\Markdown implements ContentParser
     {
 
         /**
@@ -29,7 +29,7 @@
         public function transform($text)
         {
             $text = preg_replace_callback(TextParser::getIssueRegex(), [$this, '_parse_issuelink'], $text);
-            $text = $this->text($text);
+            $text = $this->transform($text);
             $text = preg_replace_callback(TextParser::getMentionsRegex(), [$this, '_parse_mention'], $text);
             $text = preg_replace_callback(self::getStrikethroughRegex(), [$this, '_parse_strikethrough'], $text);
             $text = preg_replace_callback('/(<pre><code class="language-(\w*)">)(.*)<\/code><\/pre>/misU', [$this, 'highlightCode'], $text);
