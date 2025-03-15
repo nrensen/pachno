@@ -64,7 +64,7 @@
                 $insertion->add(self::DESCRIPTION, $description);
             }
             if ($content !== null) {
-                $insertion->add(self::CONTENT, $content);
+                $insertion->add(self::CONTENT, $content, null, 'blob');
             }
             $res = $this->rawInsert($insertion);
 
